@@ -24,12 +24,3 @@
     align-content: space-around;
     flex-wrap: wrap;
 }
-.content {
-    height: 20vh;
-    display: flex;
-    flex-basis: 30%;
-    justify-content: center;
-    border: 3px solid black;
-    border-radius: 30px;
-    background-color: white;
-}

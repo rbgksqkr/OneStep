@@ -2,10 +2,17 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import { useState } from "react";
+import ContentList from "@/components/ContentList";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [contents, setContents] = useState([1, 2, 3, 4, 5, 6]);
+  const [inputData, setInputData] = useState("");
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputData(e.target.value);
+  };
   return (
     <>
       <Head>
@@ -17,22 +24,22 @@ export default function Home() {
       <div className={styles.bodyContainer}>
         <div className={styles.headContainer}>
           <h1>One Step</h1>
-          <form>
-            <input />
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              setInputData("");
+              e.target.children[0].value = "";
+            }}
+          >
+            <input
+              onChange={handleChange}
+              name="todo-input"
+              placeholder="입력하세요"
+            />
           </form>
         </div>
         <div className={styles.contentContainer}>
-          <div className={styles.content}>
-            <p>기록용</p>
-          </div>
-          <div className={styles.content}></div>
-          <div className={styles.content}></div>
-          <div className={styles.content}></div>
-          <div className={styles.content}></div>
-          <div className={styles.content}></div>
-          <div className={styles.content}></div>
-          <div className={styles.content}></div>
-          <div className={styles.content}></div>
+          <ContentList contents={contents} />
         </div>
       </div>
     </>
