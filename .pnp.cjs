@@ -28,8 +28,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@testing-library/dom", "npm:9.3.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:010717b7ec225a1e12d2b39e959ec977e10eec13ac76ce7d9eb6c67f3853886bd65bdc4c9c5cb19c59b6fd743bbb38afc067f87b88c97fb6ed28b4e13c4108e7#npm:14.0.0"],\
+            ["@testing-library/user-event", "virtual:010717b7ec225a1e12d2b39e959ec977e10eec13ac76ce7d9eb6c67f3853886bd65bdc4c9c5cb19c59b6fd743bbb38afc067f87b88c97fb6ed28b4e13c4108e7#npm:14.4.3"],\
             ["@types/jest", "npm:29.5.2"],\
             ["@types/node", "npm:20.3.2"],\
             ["@types/react", "npm:18.2.14"],\
@@ -1594,6 +1596,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/react",\
             "react-dom",\
             "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@testing-library/user-event", [\
+        ["npm:14.4.3", {\
+          "packageLocation": "./.yarn/cache/@testing-library-user-event-npm-14.4.3-2d1a75355f-852c48ea6d.zip/node_modules/@testing-library/user-event/",\
+          "packageDependencies": [\
+            ["@testing-library/user-event", "npm:14.4.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:010717b7ec225a1e12d2b39e959ec977e10eec13ac76ce7d9eb6c67f3853886bd65bdc4c9c5cb19c59b6fd743bbb38afc067f87b88c97fb6ed28b4e13c4108e7#npm:14.4.3", {\
+          "packageLocation": "./.yarn/__virtual__/@testing-library-user-event-virtual-ef55cb9c2a/0/cache/@testing-library-user-event-npm-14.4.3-2d1a75355f-852c48ea6d.zip/node_modules/@testing-library/user-event/",\
+          "packageDependencies": [\
+            ["@testing-library/user-event", "virtual:010717b7ec225a1e12d2b39e959ec977e10eec13ac76ce7d9eb6c67f3853886bd65bdc4c9c5cb19c59b6fd743bbb38afc067f87b88c97fb6ed28b4e13c4108e7#npm:14.4.3"],\
+            ["@testing-library/dom", "npm:9.3.1"],\
+            ["@types/testing-library__dom", null]\
+          ],\
+          "packagePeers": [\
+            "@testing-library/dom",\
+            "@types/testing-library__dom"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6420,8 +6444,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["onestep", "workspace:."],\
+            ["@testing-library/dom", "npm:9.3.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:010717b7ec225a1e12d2b39e959ec977e10eec13ac76ce7d9eb6c67f3853886bd65bdc4c9c5cb19c59b6fd743bbb38afc067f87b88c97fb6ed28b4e13c4108e7#npm:14.0.0"],\
+            ["@testing-library/user-event", "virtual:010717b7ec225a1e12d2b39e959ec977e10eec13ac76ce7d9eb6c67f3853886bd65bdc4c9c5cb19c59b6fd743bbb38afc067f87b88c97fb6ed28b4e13c4108e7#npm:14.4.3"],\
             ["@types/jest", "npm:29.5.2"],\
             ["@types/node", "npm:20.3.2"],\
             ["@types/react", "npm:18.2.14"],\

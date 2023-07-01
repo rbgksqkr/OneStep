@@ -39,7 +39,7 @@ export default function Home() {
             <input
               onChange={handleChange}
               name="todo-input"
-              placeholder="입력하세요"
+              placeholder="목표를 입력하세요"
               value={inputData}
             />
           </form>
