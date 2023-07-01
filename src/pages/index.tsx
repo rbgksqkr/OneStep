@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ContentList from "@/components/ContentList";
 import { IContent } from "@/types/content";
+import { getDateFormat } from "@/utils/date";
 
 export default function Home() {
   const [contents, setContents] = useState([] as IContent[]);
@@ -16,14 +17,43 @@ export default function Home() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const currentTime = getDateFormat();
     const content = {
       id: ++id.current,
       data: inputData,
+      createdAt: currentTime,
     };
     setContents([...contents, content]);
     setInputData("");
   };
 
+  const getContentData = async () => {
+    return await fetch("http://localhost:4000/posts", {
+      method: "GET",
+    }).then((res) => res.json());
+  };
+
+  const addContentData = async () => {
+    await fetch("http://localhost:4000/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data: inputData,
+        createdAt: getDateFormat(),
+      }),
+    }).then((res) => {
+      console.log(res.status);
+      return res.status;
+    });
+  };
+
+  useEffect(() => {
+    const updateData = async () => {
+      const content = await getContentData();
+      setContents(content);
+    };
+    updateData();
+  }, []);
   return (
     <>
       <Head>
@@ -42,7 +72,11 @@ export default function Home() {
               placeholder="목표를 입력하세요"
               value={inputData}
             />
+            <button onClick={addContentData}>추가</button>
           </form>
+        </div>
+        <div>
+          <button onClick={getContentData}>겟</button>
         </div>
         <div className={styles.contentContainer}>
           <ContentList contents={contents} />

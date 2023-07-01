@@ -5,7 +5,8 @@ const ContentItem = (props: any) => {
   const { content } = props;
   return (
     <div className={styles.content}>
-      <p>{content.data}</p>
+      <div>{content.data}</div>
+      <div>{content.createdAt}</div>
     </div>
   );
 };
