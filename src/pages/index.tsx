@@ -3,9 +3,10 @@ import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { useRef, useState } from "react";
 import ContentList from "@/components/ContentList";
+import { IContent } from "@/types/content";
 
 export default function Home() {
-  const [contents, setContents] = useState([] as any);
+  const [contents, setContents] = useState([] as IContent[]);
   const [inputData, setInputData] = useState("");
   const id = useRef(0);
 
