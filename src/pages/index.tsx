@@ -1,18 +1,28 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ContentList from "@/components/ContentList";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
-  const [contents, setContents] = useState([1, 2, 3, 4, 5, 6]);
+  const [contents, setContents] = useState([] as any);
   const [inputData, setInputData] = useState("");
+  const id = useRef(0);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputData(e.target.value);
   };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const content = {
+      id: ++id.current,
+      data: inputData,
+    };
+    setContents([...contents, content]);
+    setInputData("");
+  };
+
   return (
     <>
       <Head>
@@ -24,17 +34,12 @@ export default function Home() {
       <div className={styles.bodyContainer}>
         <div className={styles.headContainer}>
           <h1>One Step</h1>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setInputData("");
-              e.target.children[0].value = "";
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <input
               onChange={handleChange}
               name="todo-input"
               placeholder="입력하세요"
+              value={inputData}
             />
           </form>
         </div>

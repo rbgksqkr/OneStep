@@ -5,7 +5,7 @@ const ContentItem = (props: any) => {
   const { content } = props;
   return (
     <div className={styles.content}>
-      <p>기록용 {content}</p>
+      <p>{content.data}</p>
     </div>
   );
 };
